@@ -1,0 +1,1 @@
+mount_smbfs -I [ip address] //[username]@[servername-even-if-cant-ping]/music /mnt/vbox-share/
