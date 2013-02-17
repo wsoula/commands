@@ -1,0 +1,18 @@
+1. git clone <repo-a-url> tmp-repo
+2. cd tmp-repo
+3. git checkout <branch-in-repo-a>
+4. git remote rm origin # not really needed
+5. git filter-branch --subdirectory-filter <directory-to-move> -- --all
+6. mkdir -p <target-path in repo-b>
+7. git mv -k * <target-path in repo-b>
+8. git commit
+9. cd <path-to-local-repo-b> # clone it, if you didn't do already
+10. Create a new branch and check it out
+11. git remote add origin-tmp-repo <path tmp-repo>
+12. git pull origin-tmp-repo <branch-in-repo-a>
+13. rm -rf <path tmp-repo>
+
+Repeat all steps with every <directory-to-move> that needs to be moved. You'll need a new tmp-repo for every directory, because "git filter-branch --subdirectory ..." can only take one directory as an argument and the repo is largely unusable after executing the command. That's why there is a rm -rf in step 13. When transferring subsequent directories, steps 10 and 11 can be omitted.
+
+When you are done with all directories, you should do
+git remote rm origin-tmp-repo and git push in local repository B
