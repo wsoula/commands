@@ -1,1 +1,10 @@
 find ~/Music -mindepth 1 -maxdepth 1 -type d '!' -exec sh -c 'ls -1 "{}"|egrep -i -q "^(uploaded|itunes)$"' ';' '!' -name iTunes '!' -name GarageBand -print
+###Below will put an uploaded folder in every folder returned above if the above is redirected to tmp, "> tmp"
+#a=0
+#while read line
+#do
+#a=`expr $a + 1`
+##cd "${line}"
+#touch uploaded
+#done < tmp
+#rm tmp
