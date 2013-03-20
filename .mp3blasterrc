@@ -1,0 +1,159 @@
+#Read man mp3blaster, section MP3BLASTERRC, to get any keywords
+#and values not mentioned here. Items mentioned here that are not described,
+#are #well described in the manual, so please use that as a reference!
+#All values shown here without description are the default values.
+
+#DownFrequency = No
+#Threads=250
+
+#SDL is only the default if available (which is recommended). Otherwise, 
+#'oss' will be used. Explicitly requesting a driver that does not exist on
+#your system results in an error message.
+#AudioDriver = sdl
+
+#Sound device to use if AudioDriver is 'oss':
+#AudioDriver = oss
+#SoundDevice = /dev/dsp
+
+#Audio over NAS
+#AudioDriver = nas
+#SoundDevice = localhost:8000
+
+#Audio over esd (only works on localhost)
+#AudioDriver = esd
+
+#AudiofileMatching is a list of regular expressions that determine which file
+#is considered a valid audiofile. matching is done using default settings and
+#regexec(3). Extended, case-insensitive regular expression matchins is used 
+#(note: version prior to 3.1.1 used case-sensitive searching!)
+#using regexs!
+#This line would match any not-directory file:
+#AudiofileMatching = \\.*
+#This line would shell global (case insensitive) match *.mp3,*.mp3,*.sid,*.wav,
+#http://*,*.ogg
+#AudiofileMatching = \\.mp[23]$, \\.sid$, \\.wav$, ^http://, \\.ogg$
+
+#Use PlaylistMatching to specify which files are considered to be playlists.
+#Files that are considered playlists, can be loaded by pressing enter over the
+#file when it's highlighted in the filemanager.
+#Default playlist files are *.lst/*.m3u,which could be written like this:
+#PlaylistMatching = \\.lst$, \\.m3u$
+
+#SkipLength = 10
+#PanSize = 5
+#WrapAround = Yes
+#PlaylistDir = ~/.mp3blaster_playlists
+File.ID3Names = true 
+
+#Choose from: alpha, alpha-case, modify-new, modify-old, size-small, size-big,
+#             none
+#File.SortMode = alpha
+
+#HideOtherFiles = true.
+#ScanMP3 = no
+#SelectItems.UnselectFirst = no
+#SelectItems.SearchRegex = no
+#SelectItems.SearchCaseInsensitive = yes
+
+#If you want to display ID3 tags in another character set (in this case
+#koi8-r <= win1251):
+#CharsetTable = /usr/local/share/mp3blaster/win2koi.tbl
+
+#Set a bunch of colours. Try and find out what they do; most should be obvious.
+#Currently, colour support is mostly broken and very inconsistent..
+#Colours: black, red, green, yellow, blue, magenta, cyan, white
+#Color.Default.fg = white
+#Color.Default.bg = black
+# Input window color
+#Color.Popup.fg = blue
+#Color.Popup.bg = blue
+# Input window text box color
+#Color.PopupInput.fg = white
+#Color.PopupInput.bg = magenta
+# Error message color
+#Color.Error.fg = white
+#Color.Error.bg = red
+# CD-player button color
+#Color.Button.fg = magenta
+#Color.Button.bg = black
+# Keybindings color
+#Color.ShortCut.fg = magenta
+#Color.ShortCut.bg = blue
+# Label color
+#Color.Label.fg = black
+#Color.Label.bg = yellow
+# Number and similar status indicators color
+#Color.Number.fg = yellow
+#Color.Number.bg = black
+# MP3 files in filee manager color
+#Color.FileMp3.fg = green
+# Directories in file manager color
+Color.FileDir.fg = yellow 
+# Playlist files in file manager color
+#Color.FileLst.fg = yellow
+# Other files in file manager color
+#Color.FileWin.fg = magenta
+
+##Set keybindings
+#Valid key bindings:
+# Single-character keybindings represent themselves. If you want to specify a
+# scancode, the syntax is 's<hex-digit><hex-digit>'. All others are special
+# canonical names: 'spc' (space), 'ent' (enter), 'kp0'..'kp9' (keypad 0..9),
+# 'ins' (insert), 'hom' (home), 'del' (delete), 'end' (end), 'pup' (pageup),
+# 'pdn' (pagedown), 'f1'..'f12', 'up'/'dwn'/'lft'/'rig' (cursor keys),
+# 'bsp' (backspace).
+#The default keybindings make perfect sense if you are using a text console.
+#If you run mp3blaster in X, you might want to uncomment the following
+#keybindings:
+Key.SelectFiles = 1
+Key.AddGroup = 2
+Key.SetGroupTitle = 5
+Key.ToggleRepeat = 6
+Key.ToggleShuffle = 7
+Key.TogglePlaymode = 8
+Key.ToggleSort = F
+Key.ChangeThread = #
+Key.File.AddFiles = 1
+Key.File.InvSelection = 2
+Key.File.RecursiveSelect = 3
+Key.File.SetPath = 4
+Key.File.DirsAsGroups = 5
+Key.File.Mp3ToWav = 6
+Key.File.AddURL = 7
+Key.LoadPlaylist = l
+Key.WritePlaylist = w
+Key.Play.Next = n
+Key.Play.Previous = b
+Key.Play.Forward = N
+Key.Play.Rewind = B
+Key.Play.Play = p
+Key.Play.Stop = s
+
+#And here are the other possible keybindings:
+#Key.ClearPlaylist = C
+#Key.MoveAfter = m
+#Key.MoveBefore = M
+#Key.File.StartSearch = /
+#Key.File.UpDir = bsp
+#Key.File.Select = spc
+#Key.Select = spc
+#Key.File.MarkBad = b
+#Key.File.Rename = r
+#Key.File.Delete = D
+#Key.ToggleMixer = t
+#Key.ToggleDisplay = f
+#Key.QuitProgram = q
+#Key.Help = ?
+#Key.Refresh = L
+#Key.Enter = ent
+#Key.File.Enter = ent
+#Key.PrevPage = pup
+#Key.NextPage = pdn
+#Key.Up = up
+#Key.Down = dwn
+#Key.left = lft
+#Key.Right = rig
+#Key.Home = hom
+#Key.End = end
+#Key.HelpPrev = -
+#Key.HelpNext = +
