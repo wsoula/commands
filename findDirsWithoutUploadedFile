@@ -1,11 +1,10 @@
 basedir=`pwd`
 find ~/Music -mindepth 1 -maxdepth 1 -type d '!' -exec sh -c 'ls -1 "{}"|egrep -i -q "^(uploaded|itunes)$"' ';' '!' -name iTunes '!' -name GarageBand -print > "${basedir}/tmp"
-###Below will put an uploaded folder in every folder returned above if the above is redirected to tmp, "> tmp"
 while read line
 do
-cd "${line}"
-#touch uploaded
-#pwd
-uploadMp3s
+  cd "${line}"
+  #touch uploaded
+  pwd
+  uploadMp3s
 done < "${basedir}/tmp"
 rm "${basedir}/tmp"
