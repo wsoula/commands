@@ -1,10 +1,27 @@
 basedir=`pwd`
+
+#Print a list of directories in the Music folder without an 'uploaded' file excluding iTunes and GarageBand folders
 find ~/Music -mindepth 1 -maxdepth 1 -type d '!' -exec sh -c 'ls -1 "{}"|egrep -i -q "^(uploaded|itunes)$"' ';' '!' -name iTunes '!' -name GarageBand -print > "${basedir}/tmp"
+
+#Get total number of directories
+t=0
+while read line
+do 
+ t=`expr $t + 1`
+done<"${basedir}/tmp"
+echo There are $t folders
+
+#Upload every folder that is identified above
+n=0
 while read line
 do
+  n=`expr $n + 1`
   cd "${line}"
+  echo "*********************************************************"
+  echo "***                       $n of $t                       ***"
+  echo "***`pwd`***"
+  echo "*********************************************************"
   #touch uploaded
-  pwd
   uploadMp3s
 done < "${basedir}/tmp"
 rm "${basedir}/tmp"
