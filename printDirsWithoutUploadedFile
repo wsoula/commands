@@ -1,0 +1,9 @@
+basedir=`pwd`
+
+#Required: findDirsWithoutUploadedFile in PATH
+#Required: uploadFiles in PATH
+
+#Find files to upload
+findDirsWithoutUploadedFile
+#Call uploadFiles with its default, which should always be false for security
+uploadFiles

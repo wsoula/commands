@@ -1,0 +1,10 @@
+#!/bin/bash
+album="${PWD##*/}"
+echo uploaded: `date` > uploaded
+ftp -i -n -v <<-EOF
+open ftp.stylishcarpet.com
+user user1 polinkadir
+mkdir "$album"
+cd "$album"
+mput *
+bye

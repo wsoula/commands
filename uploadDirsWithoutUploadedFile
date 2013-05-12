@@ -1,0 +1,10 @@
+basedir=`pwd`
+
+#Required: findDirsWithoutuploadedFile in PATH
+#Required: uploadFiles in PATH
+#Required: uploadMp3s in PATH
+
+#Find files to upload
+findDirsWithoutUploadedFile
+#Call uploadFiles with a parameter of true, as uploadFiles will always default to not uploading for security
+uploadFiles true
