@@ -1,4 +1,4 @@
 basedir=`pwd`
 
-#Print a list of directories in the Music folder without an 'uploaded' file excluding iTunes and GarageBand folders and sort with newest last
-find ~/Music -mindepth 1 -maxdepth 1 -type d '!' -exec sh -c 'ls -t -1 "{}"|egrep -i -q "^(uploaded|itunes)$"' ';' '!' -name iTunes '!' -name GarageBand -print0 | sort | xargs -0 ls -drt > "${basedir}/tmp"
+#Print a list of directories in the Music folder without an 'uploaded' file excluding iTunes and GarageBand folders and sort with newest last appended with a user passed identifier
+find ~/Music -mindepth 1 -maxdepth 1 -type d '!' -exec sh -c 'ls -t -1 "{}"|egrep -i -q "^(uploaded|itunes)$"' ';' '!' -name iTunes '!' -name GarageBand -print0 | sort | xargs -0 ls -drt > "${basedir}/tmp-$1"

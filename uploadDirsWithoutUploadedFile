@@ -3,8 +3,8 @@ basedir=`pwd`
 #Required: findDirsWithoutuploadedFile in PATH
 #Required: uploadFiles in PATH
 #Required: uploadMp3s in PATH
-
+id=`date "+%Y%m%d%H%M%S"`
 #Find files to upload
-findDirsWithoutUploadedFile
+findDirsWithoutUploadedFile $id
 #Call uploadFiles with a parameter of true, as uploadFiles will always default to not uploading for security
-uploadFiles true
+uploadFiles -ui $id

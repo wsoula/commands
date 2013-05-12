@@ -3,7 +3,8 @@ basedir=`pwd`
 #Required: findDirsWithoutUploadedFile in PATH
 #Required: uploadFiles in PATH
 
+id=`date "+%Y%m%d%H%M%S"`
 #Find files to upload
-findDirsWithoutUploadedFile
+findDirsWithoutUploadedFile $id
 #Call uploadFiles with its default, which should always be false for security
-uploadFiles
+uploadFiles -i $id
