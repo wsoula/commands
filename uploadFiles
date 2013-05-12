@@ -1,12 +1,39 @@
 basedir=`pwd`
 
-#This script expects a file called 'tmp' in the basedir directory (default pwd) that contains the list of directories to upload
+#This script expects a file called 'tmp' in the basedir directory (default pwd), with an appended id, that contains the list of directories to upload
+
+args=`getopt ui: $*`
+# you should not use `getopt abo: "$@"` since that would parse
+# the arguments differently from what the set command below does.
+if [ $? != 0 ]
+  then
+  echo 'Usage: ...'
+  exit 2
+fi
+set -- $args
+# You cannot use the set command with a backquoted getopt directly,
+# since the exit code from getopt would be shadowed by those of set,
+# which is zero by definition.
+for i
+  do
+    case "$i"
+      in
+        -u)
+          sflags="true";
+          shift;;
+        -i)
+          tempfile="${basedir}/tmp-$2"
+          shift;;
+        --)
+          shift; break;;
+    esac
+ done
 #Get total number of directories
 t=0
 while read line
 do 
  t=`expr $t + 1`
-done<"${basedir}/tmp"
+done<"${tempfile}"
 echo There are $t folders
 
 #Upload every folder that is identified above
@@ -20,10 +47,9 @@ do
   echo "***`pwd`***"
   echo "*********************************************************"
   #touch uploaded
-  if [ "$1" = "true" ]
+  if [ "$sflags" = "true" ]
     then
       uploadMp3s
-      pwd
   fi
-done < "${basedir}/tmp"
-rm "${basedir}/tmp"
+done < "${tempfile}"
+rm "${tempfile}"
