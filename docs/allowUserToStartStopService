@@ -1,0 +1,12 @@
+sc sdshow <service_name>
+Then get SID of user that should start and stop the service
+* regedit -> HKLM\Software\Microsoft\Windows NT\CurrentVersion\ProfileList
+* get SID from name of key whose ProfileImagePath includes the user
+Now that we have the SID, output service's sdshow to file
+* take first (A;;...;;SY) copy and paste before any S:(AU;...
+* replace SY with SID, add sc sdset <service_name> to front and run it in admin cmd
+
+If you do the above as written, I think the user would get admin privileges to the service instead of just changing SY to your SID change the capital letters to RPWPCR so you get (A;;RPWPCR;;;<SID>)
+
+Expected Result:
+[SC] SetServiceObjectSecurity SUCCESS
