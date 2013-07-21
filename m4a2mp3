@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+#list files
+for i in *.m4a
+do
+  if test -f "$i" 
+    then
+      echo "Converting: $i"
+      #get final filename
+      filename=`echo "$i" | sed s/.m4a/.mp3/g`
+      #convert from m4a to mp3
+      ffmpeg -i "$i" -acodec libmp3lame -ab 192k "$i.mp3"
+      #put id3 info on mp3
+      ffmpeg -i "$i" -f ffmetadata metadata.txt
+      ffmpeg -i "$i.mp3" -i metadata.txt -map_metadata 1 -c:a copy -id3v2_version 3 -write_id3v1 1 "$filename"
+      rm "$i.mp3" metadata.txt
+  fi
+done
+
+#delete m4a files
+find . -type f ! -name '*.mp3' -delete
