@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+if [[ -n $1 && -n $2 && -n $3 && -n $4 ]]; then
+  leave=0
+else
+  echo Proper usage defaultBranch [token] [url] [group] [repo]
+  leave=1
+fi
+if [[ $leave == 1 ]]; then
+  exit 1
+fi
+token=$1
+url=$2
+group=$3
+repo=$4
+curl -s -k -H "Authorization: token $token" https://$url/api/v3/repos/$group/$repo | grep -oe default_branch\":\ \"[A-Za-z0-9\._-]\\+ | sed s/default_branch\":\ \"//g
