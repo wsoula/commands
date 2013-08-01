@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+if [[ -z $1 ]]; then
+  echo must enter a value to remove
+  exit 1
+fi
+for i in *$1.mp3; do
+  #echo "$i"
+  mv "$i" "${i/$1.mp3/}.mp3"
+done
