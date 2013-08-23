@@ -1,0 +1,11 @@
+#!/bin/bash
+. uploadMP3s.prop
+album="${PWD##*/}"
+echo uploaded: `date` > uploaded
+ftp -i -n -v <<-EOF
+open ftp.stylishcarpet.com
+user $user $password
+mkdir "$album"
+cd "$album"
+mput *
+bye
