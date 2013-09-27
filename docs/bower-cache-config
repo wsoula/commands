@@ -3,6 +3,7 @@ Short Answer
 - before v0.10.0, config.cache
 - after that, config.storage.cache (like docs say)
 - after some commit before v1.0.0 release, config.storage.packages
+- example for before v0.10.0 - bower install --config.cache=bower-cache
 
 Long Answer
 ---
