@@ -1,0 +1,34 @@
+Short Answer
+---
+- before v0.10.0, config.cache
+- after that, config.storage.cache (like docs say)
+- after some commit before v1.0.0 release, config.storage.packages
+
+Long Answer
+---
+Taken from: http://stackoverflow.com/questions/17881116/how-to-change-bower-default-cache-git-templates-completion-folder-locations
+
+I met same problem, after some tries according the spec doc, i give up...
+
+so I reviewed bower history at github, i found these:
+
+before v0.10.0, bower use config.cache (lib/core/ResolveCache.js)
+after that, satazor rewrite bower core, he use config.storage.cache at the beginning, i bet the spec doc is write at this moment. in spec:
+storage [object]
+
+Where to store persistent data, such as cache, needed by bower. Defaults to paths that > suite the OS/platform. Valid keys are cache, registry, links, completion.
+
+after this commit, satazor use config.storage.packages instead of config.storage.cache
+
+after that, v1.0.0 release, the config is always to be config.storage.packages. but the spec doc not sync this change
+
+solution
+
+so, solution is one of below:
+
+export environment variable "bower_storage__packages"
+use .bowerrc, config like this:
+
+{ "storage":{ "packages":"/path/to/cache" } }
+
+PS:I think the spec doc link to google doc is not a good idea, maybe in github is more sensible choice(we can pull request).
