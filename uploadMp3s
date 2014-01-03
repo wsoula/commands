@@ -1,7 +1,8 @@
 #!/bin/bash
 . uploadMP3s.prop
 album="${PWD##*/}"
-echo uploaded: `date` > uploaded
+checkMp3s "$album"
+if [ "$?" = "0" ];then
 ftp -i -n -v <<-EOF
 open ftp.stylishcarpet.com
 user $user $password
@@ -9,3 +10,9 @@ mkdir "$album"
 cd "$album"
 mput *
 bye
+EOF
+  echo uploaded: `date` > uploaded
+else
+  echo THIS ALBUM ALREADY EXISTS ON THE FTP SERVER SO I AM NOT UPLOADING IT
+  echo "`date`: $album already exists" >> tmp.album.exists
+fi

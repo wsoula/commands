@@ -2,6 +2,8 @@
 PS1="\[\033[0;31m\]\t \[\033[0;34m\]\w> \[\033[0m\]"
 #Add user scripts
 PATH=$PATH:~/bin
+#Add play to path
+PATH=$PATH:~/play/play-2.1.2
 
 #Aliases
 #reload=source ~/.bashrc
