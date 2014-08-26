@@ -1,0 +1,21 @@
+#!/bin/bash
+. uploadMP3s.prop
+album=$1
+if [ -z "$album" ];then
+  echo an album must be passed in
+  exit 1
+fi
+echo the album is: $album
+function listMp3s(){
+  ftp -i -n -v <<-EOF
+open ftp.stylishcarpet.com
+user $user $password
+ls
+bye
+EOF
+}
+
+exists=`listMp3s | grep -o "$album"`
+if [ "$exists" = "$album" ];then
+  exit 1
+fi

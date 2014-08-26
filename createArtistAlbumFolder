@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+#list files
+for i in *.mp3
+do
+  if test -f "$i" 
+    then
+      echo "Converting: $i"
+      #put id3 info on mp3
+      ffmpeg -i "$i" -f ffmetadata metadata.txt
+      . metadata.txt
+      cd ../
+      mv `pwd` "$artist - $album"
+  fi
+done
+
+#delete m4a files
+find . -type f ! -name '*.mp3' -delete

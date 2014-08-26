@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+for f in *.flac; do
+  echo "${f[@]/%flac/mp3}"
+  x="${f[@]/%flac/mp3}"
+  ffmpeg -i "$f" -qscale:a 0 "$x"
+done
