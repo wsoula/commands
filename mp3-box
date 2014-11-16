@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+removeWordFromFilename " - www.mp3-box.com"

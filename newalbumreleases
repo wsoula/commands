@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+word_to_remove="www.NewAlbumReleases.net_"
+year=`date +"%Y"`
+for i in $word_to_remove*.rar; do
+  echo "$i"
+  mv "$i" "${i/$word_to_remove/}"
+done
+#get artist and album, remove _(YYYY).rar, remove " (YYYY)", remove "The" from beginning
+file_name=`ls | grep -e [a-zA-Z0-9]`
+directory_name=`echo "$file_name" | sed s/' '/_/g | sed s/_\($year\).rar//g | sed s/" "\($year\).rar//g | sed s/^The\ //g | sed s/_/' '/g`
+echo "directory name=$directory_name"
+mkdir ~/Music/"$directory_name"
+mv "$file_name" ~/Music/"$directory_name"
+cd ~/Music/"$directory_name"
+unrar e "$file_name"
+rm "$file_name"
+rm "New Album Releases.url"
+#cleanMp3Folder
