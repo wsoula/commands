@@ -1,7 +1,7 @@
 #Set command prompt
 . ~/git/git/contrib/completion/git-prompt.sh
 #PS1="\[\033[0;31m\]\t \[\033[0;34m\]\w> \[\033[0m\]"
-PS1='\[\033[0;31m\]\t\[\033[0m\] \[\033[0;32m\]\h\]\033[0m\] \[\033[0;34m\]\w$(__git_ps1 " (%s)")> \[\033[0m\]'
+PS1='\[\033[0;31m\]\t\[\033[0m\] \[\033[0;32m\]\h\[\033[0m\] \[\033[0;34m\]\w$(__git_ps1 " (%s)")> \[\033[0m\]'
 #Add user scripts
 PATH=$PATH:~/bin
 #Add play to path
