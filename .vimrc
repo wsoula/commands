@@ -4,3 +4,5 @@ syntax on
 :set ai sw=2
 "make tabs be spaces"
 set expandtab
+"editorconfig"
+filetype plugin on
