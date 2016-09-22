@@ -1,1 +1,1 @@
-find . -iname *.jar | while read JARF; do jar tvf $JARF | grep a/b/c/D.class && echo $JARF ; done
+find . -name '*.jar' | while read JARF; do jar tvf $JARF | grep a/b/c/D.class && echo $JARF ; done

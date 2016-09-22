@@ -6,3 +6,5 @@ syntax on
 set expandtab
 "editorconfig"
 filetype plugin on
+"pathogen.vim"
+execute pathogen#infect()
