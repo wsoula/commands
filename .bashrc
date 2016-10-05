@@ -3,6 +3,7 @@
 
 #Set command prompt
 . ~/git/git/contrib/completion/git-prompt.sh
+. ~/git/git/contrib/completion/git-completion.bash
 #PS1="\[\033[0;31m\]\t \[\033[0;34m\]\w> \[\033[0m\]"
 PS1='\[\e[0;31m\]\t\[\e[m\] \[\e[0;32m\]\h\[\e[m\] \[\e[0;34m\]\w$(__git_ps1 " (%s)")> \[\e[m\]'
 #Add user scripts
