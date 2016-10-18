@@ -4,6 +4,8 @@ syntax on
 :set ai sw=2
 "make tabs be spaces"
 set expandtab
+"remove trailing white space: http://vim.wikia.com/wiki/Remove_unwanted_spaces"
+autocmd BufWritePre * %s/\s\+$//e
 "editorconfig"
 filetype plugin on
 "pathogen.vim"
