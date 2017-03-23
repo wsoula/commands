@@ -8,5 +8,8 @@ set expandtab
 autocmd BufWritePre * %s/\s\+$//e
 "editorconfig"
 filetype plugin on
+"remove trailing white space:
+"http://vim.wikia.com/wiki/Remove_unwanted_spaces"
+autocmd BufWritePre * %s/\s\+$//e
 "pathogen.vim"
 execute pathogen#infect()
