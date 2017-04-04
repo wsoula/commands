@@ -6,6 +6,8 @@
 . ~/git/git/contrib/completion/git-completion.bash
 #PS1="\[\033[0;31m\]\t \[\033[0;34m\]\w> \[\033[0m\]"
 PS1='\[\e[0;31m\]\t\[\e[m\] \[\e[0;32m\]\h\[\e[m\] \[\e[0;34m\]\w$(__git_ps1 " (%s)")> \[\e[m\]'
+#Default PATH
+export PATH=/usr/bin:/usr/sbin:/bin:/sbin
 #Add user scripts
 PATH=$PATH:~/bin
 #Add play to path
@@ -23,3 +25,8 @@ alias lg1="git log --graph -40 --format=format:'%C(bold blue)%h%C(reset) - %C(bo
 alias lg2="git log --graph -40 --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit"
 #DOCKER_HOST=tcp://127.0.0.1:4243
 alias ssh="ssh -o 'UserKnownHostsFile /dev/null' -o StrictHostKeyChecking=no"
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+#export PATH=$JAVA_HOME/bin:$PATH
+eval "$(chef shell-init bash)"
