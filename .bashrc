@@ -30,3 +30,6 @@ export EDITOR="$VISUAL"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 #export PATH=$JAVA_HOME/bin:$PATH
 eval "$(chef shell-init bash)"
+#Sqitch
+alias sqitch="docker run -it --rm -v ~/.sqitch:/root/.sqitch -v $(pwd):/flipr --workdir=/flipr aleksandrvin/sqitch"
+alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-postgres -v $(pwd):/flipr --workdir=/flipr aleksandrvin/sqitch"
