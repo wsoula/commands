@@ -62,7 +62,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nomad docker iterm2 knife knife-ssh terraform jsontools git-extras)
+plugins=(git nomad docker iterm2 knife knife-ssh terraform jsontools git-extras zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
