@@ -35,7 +35,8 @@ export PATH=/opt/chefdk/embedded/bin:$PATH:/opt/chefdk/bin:/Users/willsoula/.che
 #eval "$(chef shell-init bash)"
 #eval "$(/opt/chefdk/embedded/bin/ruby ~/git/multi_chef/multi_chef.rb -a api.chef.io -o di -u wsoula)"
 eval "$(~/git/multi_chef/multi_chef.rb -a api.chef.io -o di -u wsoula)"
-alias dev-chef="chef-switch -a chef-api.drillinginfo.com -o didev -u william_soula"
+alias onprem-dev-chef="chef-switch -a chef-api.drillinginfo.com -o didev -u william_soula"
+alias dev-chef="chef-switch -a api.chef.io -o didev -u wsoula"
 alias prod-chef="chef-switch -a api.chef.io -o di -u wsoula"
 #docker
 export PATH=$PATH:/usr/local/bin
