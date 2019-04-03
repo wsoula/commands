@@ -47,3 +47,5 @@ alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-p
 . ~/.bash_profile
 # Terraform
 export PATH=$PATH:/Users/willsoula/bin
+# Docker Containers for Desktop
+alias htop="docker run --rm -it --pid host jess/htop"
