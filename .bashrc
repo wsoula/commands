@@ -30,6 +30,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 #export PATH=$JAVA_HOME/bin:$PATH
+<<<<<<< Updated upstream
 #chef
 export PATH=/opt/chefdk/embedded/bin:$PATH:/opt/chefdk/bin:/Users/willsoula/.chefdk/gem/ruby/2.4.0/bin
 #eval "$(chef shell-init bash)"
@@ -38,8 +39,9 @@ eval "$(~/git/multi_chef/multi_chef.rb -a api.chef.io -o di -u wsoula)"
 alias onprem-dev-chef="chef-switch -a chef-api.drillinginfo.com -o didev -u william_soula"
 alias dev-chef="chef-switch -a api.chef.io -o didev -u wsoula"
 alias prod-chef="chef-switch -a api.chef.io -o di -u wsoula"
+alias ops-chef="chef-switch -a chef-api.drillinginfo.com -o di-ops-prod -u william_soula"
 #docker
-export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin
 #Sqitch
 alias sqitch="docker run -it --rm -v ~/.sqitch:/root/.sqitch -v $(pwd):/flipr --workdir=/flipr aleksandrvin/sqitch"
 alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-postgres -v $(pwd):/flipr --workdir=/flipr aleksandrvin/sqitch"
@@ -49,3 +51,4 @@ alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-p
 export PATH=$PATH:/Users/willsoula/bin
 # Docker Containers for Desktop
 alias htop="docker run --rm -it --pid host jess/htop"
+export PATH=~/.npm-global/bin:$PATH
