@@ -11,7 +11,8 @@ export ZSH="/Users/willsoula/.oh-my-zsh"
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 DEFAULT_USER="willsoula"
 
