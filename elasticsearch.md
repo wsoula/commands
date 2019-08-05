@@ -11,3 +11,7 @@ do
 curl -XDELETE "http://<ip>:9200/$i"
 done
 ```
+
+"Drain" Node of Allocations
+`curl ip:9200/_cluster/settings -d '{"transient":{"cluster.routing.allocation.exclude._ip":"ip_to_exclude"}}' -XPUT -H 'Content-Type: application/json'`
+https://www.elastic.co/guide/en/elasticsearch/reference/master/allocation-filtering.html#allocation-filtering
