@@ -31,13 +31,13 @@ export EDITOR="$VISUAL"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 #export PATH=$JAVA_HOME/bin:$PATH
 #chef
-export PATH=/opt/chefdk/embedded/bin:$PATH:/opt/chefdk/bin:/Users/willsoula/.chefdk/gem/ruby/2.4.0/bin
+#export PATH=/opt/chefdk/embedded/bin:$PATH:/opt/chefdk/bin:/Users/willsoula/.chefdk/gem/ruby/2.4.0/bin
 #eval "$(chef shell-init bash)"
 #eval "$(/opt/chefdk/embedded/bin/ruby ~/git/multi_chef/multi_chef.rb -a api.chef.io -o di -u wsoula)"
-eval "$(~/git/multi_chef/multi_chef.rb -a api.chef.io -o didev -u wsoula)"
+#eval "$(~/git/multi_chef/multi_chef.rb -a api.chef.io -o didev -u wsoula)"
 #alias onprem-dev-chef="chef-switch -a chef-api.drillinginfo.com -o didev -u william_soula"
-alias dev-chef="chef-switch -a api.chef.io -o didev -u wsoula"
-alias prod-chef="chef-switch -a api.chef.io -o di -u wsoula"
+#alias dev-chef="chef-switch -a api.chef.io -o didev -u wsoula"
+#alias prod-chef="chef-switch -a api.chef.io -o di -u wsoula"
 #alias ops-chef="chef-switch -a chef-api.drillinginfo.com -o di-ops-prod -u william_soula"
 #docker
 export PATH=$PATH:/usr/local/bin:/usr/bin
@@ -52,4 +52,6 @@ alias terraform-docs-replace='docker run --rm -v $(pwd):/docs cytopia/terraform-
 alias cat=bat
 # Docker Containers for Desktop
 alias htop="docker run --rm -it --pid host jess/htop"
+alias chrome="docker run --rm -it --net host --cpuset-cpus 0 --memory 512mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=docker.for.mac.host.internal:0 -v $HOME/Downloads:/home/chrome/Downloads -v $HOME/.config/google-chrome/:/data --security-opt seccomp=$HOME/chrome.json -v /dev/shm:/dev/shm --name chrome jess/chrome"
+alias wireshark="docker run --rm -d -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=docker.for.mac.host.internal:0 --name wireshark jess/wireshark"
 export PATH=~/.npm-global/bin:$PATH

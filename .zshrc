@@ -3,7 +3,7 @@
 export PATH=$HOME/bin:/usr/local/bin:~/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/willsoula/.oh-my-zsh"
+export ZSH="/Users/wsoula/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -14,7 +14,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-DEFAULT_USER="willsoula"
+POWERLEVEL9K_COLOR_SCHEME='dark'
+DEFAULT_USER="wsoula"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -65,7 +66,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nomad docker iterm2 knife knife-ssh terraform jsontools git-extras zsh-autosuggestions)
+plugins=(git nomad docker iterm2 terraform jsontools git-extras zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
