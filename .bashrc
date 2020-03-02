@@ -49,6 +49,7 @@ alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-p
 # Terraform
 export PATH=$PATH:/Users/willsoula/bin
 alias terraform-docs-replace='docker run --rm -v $(pwd):/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
+alias terraform='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
 alias cat=bat
 # Docker Containers for Desktop
 alias htop="docker run --rm -it --pid host jess/htop"
