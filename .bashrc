@@ -49,10 +49,18 @@ alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-p
 # Terraform
 export PATH=$PATH:/Users/willsoula/bin
 alias terraform-docs-replace='docker run --rm -v $(pwd):/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
-alias terraform='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
+alias terraform='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform'
+alias terraform11='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
 alias cat=bat
 # Docker Containers for Desktop
 alias htop="docker run --rm -it --pid host jess/htop"
 alias chrome="docker run --rm -it --net host --cpuset-cpus 0 --memory 512mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=docker.for.mac.host.internal:0 -v $HOME/Downloads:/home/chrome/Downloads -v $HOME/.config/google-chrome/:/data --security-opt seccomp=$HOME/chrome.json -v /dev/shm:/dev/shm --name chrome jess/chrome"
 alias wireshark="docker run --rm -d -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=docker.for.mac.host.internal:0 --name wireshark jess/wireshark"
+# docker run --rm mehrdadrad/tcpprobe https://www.starz.com/us/en/
+alias tcpprobe="docker run --rm mehrdadrad/tcpprobe"
+alias nin="docker run --rm -it -v $HOME/.todos.yaml:/root/.todos.yaml nin"
+alias tmpsms="docker run --rm -it -v $HOME:/tmp/tmpsms tmpsms"
+alias segno='docker run --rm -it -v ${PWD}:/tmp segno'
+alias maze="docker run --rm -it -v $(PWD):/var/tmp/maze-output maze"
+alias aws="docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli"
 export PATH=~/.npm-global/bin:$PATH
