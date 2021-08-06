@@ -48,7 +48,9 @@ alias sqitch-local="docker run -it --rm -v ~/.sqitch:/root/.sqitch --link some-p
 #. ~/.bash_profile
 # Terraform
 export PATH=$PATH:/Users/willsoula/bin
-alias terraform-docs-replace='docker run --rm -v $(pwd):/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
+# zsh-syntax-highlighting only expands $PWD and ${PWD} now
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/771#issuecomment-708568839
+alias terraform-docs-replace='docker run --rm -v $PWD:/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
 alias terraform='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform'
 alias terraform11='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
 alias cat=bat
@@ -61,6 +63,12 @@ alias tcpprobe="docker run --rm mehrdadrad/tcpprobe"
 alias nin="docker run --rm -it -v $HOME/.todos.yaml:/root/.todos.yaml nin"
 alias tmpsms="docker run --rm -it -v $HOME:/tmp/tmpsms tmpsms"
 alias segno='docker run --rm -it -v ${PWD}:/tmp segno'
-alias maze="docker run --rm -it -v $(PWD):/var/tmp/maze-output maze"
-alias aws="docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli"
+alias maze='docker run --rm -it -v $PWD:/var/tmp/maze-output maze'
+alias nafas="docker run --rm -it nafas"
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $PWD:/aws amazon/aws-cli'
+alias http="docker run -it --rm http"
+alias rare='docker run -it --rm -v $PWD:/tmp/rare rare --notrim'
+alias slo-generator="docker run -it --rm -v $(pwd):/app/ -e STACKDRIVER_HOST_PROJECT_ID=1 -e DATADOG_API_KEY=1 -e DATADOG_APP_KEY=1 -e DYNATRACE_API_URL=1 \
+        -e DYNATRACE_API_TOKEN=1 -e ELASTICSEARCH_URL=1 -e PROMETHEUS_URL=1 -e PUBSUB_PROJECT_ID=1 -e PROMETHEUS_PUSHGATEWAY_URL=1 -e PUBSUB_TOPIC_NAME=1 \
+        -e DEBUG=1 slo-generator"
 export PATH=~/.npm-global/bin:$PATH
