@@ -71,4 +71,7 @@ alias rare='docker run -it --rm -v $PWD:/tmp/rare rare --notrim'
 alias slo-generator="docker run -it --rm -v $(pwd):/app/ -e STACKDRIVER_HOST_PROJECT_ID=1 -e DATADOG_API_KEY=1 -e DATADOG_APP_KEY=1 -e DYNATRACE_API_URL=1 \
         -e DYNATRACE_API_TOKEN=1 -e ELASTICSEARCH_URL=1 -e PROMETHEUS_URL=1 -e PUBSUB_PROJECT_ID=1 -e PROMETHEUS_PUSHGATEWAY_URL=1 -e PUBSUB_TOPIC_NAME=1 \
         -e DEBUG=1 slo-generator"
+# To enforce conventional commits: https://github.com/craicoverflow/sailr
+# ln -s ~/git/sailr/sailr.sh ~/.git-templates/hooks/commit-msg
+export SAILR_CONFIG=~/sailr.json
 export PATH=~/.npm-global/bin:$PATH
