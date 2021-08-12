@@ -74,4 +74,5 @@ alias slo-generator="docker run -it --rm -v $(pwd):/app/ -e STACKDRIVER_HOST_PRO
 # To enforce conventional commits: https://github.com/craicoverflow/sailr
 # ln -s ~/git/sailr/sailr.sh ~/.git-templates/hooks/commit-msg
 export SAILR_CONFIG=~/sailr.json
+alias git-cliff='docker run -t -v "$(pwd)":/app/ -v "$HOME/git/git-cliff/cliff.toml:/app/cliff.toml" orhunp/git-cliff:latest'
 export PATH=~/.npm-global/bin:$PATH
