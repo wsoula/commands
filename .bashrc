@@ -52,6 +52,7 @@ export PATH=$PATH:/Users/willsoula/bin
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/771#issuecomment-708568839
 alias terraform-docs-replace='docker run --rm -v $PWD:/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
 alias terraform='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform'
+alias terraform12='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.12.29'
 alias terraform11='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
 alias cat=bat
 # Docker Containers for Desktop
@@ -74,5 +75,12 @@ alias slo-generator="docker run -it --rm -v $(pwd):/app/ -e STACKDRIVER_HOST_PRO
 # To enforce conventional commits: https://github.com/craicoverflow/sailr
 # ln -s ~/git/sailr/sailr.sh ~/.git-templates/hooks/commit-msg
 export SAILR_CONFIG=~/sailr.json
-alias git-cliff='docker run -t -v "$(pwd)":/app/ -v "$HOME/git/git-cliff/cliff.toml:/app/cliff.toml" orhunp/git-cliff:latest'
+alias git-cliff='docker run --rm -t -v $PWD:/app/ -v $HOME/git/git-cliff/cliff.toml:/app/cliff.toml orhunp/git-cliff:latest'
+alias aic='docker run -t -v "$(pwd)":/tmp/aic  ascii-image-converter'
 export PATH=~/.npm-global/bin:$PATH
+# NVM/NPM/Node
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+alias mute='osascript -e "set volume output volume 0"'
+alias unmute='osascript -e "set volume output volume 41"'
