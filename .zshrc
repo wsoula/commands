@@ -10,11 +10,19 @@ export ZSH="/Users/wsoula/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k" # OLD
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs command_execution_time time)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 POWERLEVEL9K_COLOR_SCHEME='dark'
+ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ORDER=(async dir git)
+SPACESHIP_RPROMPT_ORDER=(exit_code jobs exec_time time)
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_12HR=true
+SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_EXIT_CODE_SHOW=true
 DEFAULT_USER="wsoula"
 
 # Set list of themes to load
