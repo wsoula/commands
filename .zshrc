@@ -3,7 +3,7 @@
 export PATH=$HOME/bin:/usr/local/bin:~/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/wsoula/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -24,6 +24,9 @@ SPACESHIP_TIME_12HR=true
 SPACESHIP_DIR_TRUNC_REPO=false
 SPACESHIP_EXIT_CODE_SHOW=true
 SPACESHIP_GIT_STATUS_UNTRACKED=
+# SPACESHIP_GIT_SHOW=true
+# https://github.com/spaceship-prompt/spaceship-prompt/issues/1190
+SPACESHIP_PROMPT_ASYNC=false
 DEFAULT_USER="wsoula"
 
 # Set list of themes to load
@@ -107,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias ssh="ssh -o 'UserKnownHostsFile /dev/null' -o StrictHostKeyChecking=no"
 source ~/.bashrc

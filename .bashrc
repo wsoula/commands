@@ -51,9 +51,9 @@ export PATH=$PATH:/Users/willsoula/bin
 # zsh-syntax-highlighting only expands $PWD and ${PWD} now
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/771#issuecomment-708568839
 alias terraform-docs-replace='docker run --rm -v $PWD:/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
-alias terraform='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform'
-alias terraform12='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.12.29'
-alias terraform11='docker run -v $PWD:/temp/terraform --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
+alias terraform='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform'
+alias terraform12='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.12.29'
+alias terraform11='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
 alias cat=bat
 # Docker Containers for Desktop
 alias htop="docker run --rm -it --pid host jess/htop"
@@ -84,3 +84,5 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 alias mute='osascript -e "set volume output volume 0"'
 alias unmute='osascript -e "set volume output volume 41"'
+# For brew
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
