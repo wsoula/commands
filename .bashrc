@@ -54,6 +54,7 @@ alias terraform-docs-replace='docker run --rm -v $PWD:/docs cytopia/terraform-do
 alias terraform='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform'
 alias terraform12='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.12.29'
 alias terraform11='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
+alias cdktf-cli='docker run -it --rm -v $(pwd):/src -w "/src" cdktf-cli:latest sh'
 alias cat=bat
 # Docker Containers for Desktop
 alias htop="docker run --rm -it --pid host jess/htop"
@@ -76,6 +77,7 @@ alias slo-generator="docker run -it --rm -v $(pwd):/app/ -e STACKDRIVER_HOST_PRO
 # ln -s ~/git/sailr/sailr.sh ~/.git-templates/hooks/commit-msg
 export SAILR_CONFIG=~/sailr.json
 alias git-cliff='docker run --rm -t -v $PWD:/app/ -v $HOME/git/git-cliff/cliff.toml:/app/cliff.toml orhunp/git-cliff:latest'
+alias convco='docker run -u $(id -u):$(id -g) -v $PWD:/tmp --workdir /tmp --rm convco/convco'
 alias aic='docker run -t -v "$(pwd)":/tmp/aic  ascii-image-converter'
 export PATH=~/.npm-global/bin:$PATH
 # NVM/NPM/Node
@@ -86,3 +88,7 @@ alias mute='osascript -e "set volume output volume 0"'
 alias unmute='osascript -e "set volume output volume 41"'
 # For brew
 PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+# Turn of docker buildkit
+export DOCKER_BUILDKIT=0
+alias jq='docker run -i stedolan/jq'
+alias gitversion='docker run --rm -t -v $(pwd):/repo gittools/gitversion /repo'
