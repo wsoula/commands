@@ -51,7 +51,7 @@ export PATH=$PATH:/Users/willsoula/bin
 # zsh-syntax-highlighting only expands $PWD and ${PWD} now
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/771#issuecomment-708568839
 alias terraform-docs-replace='docker run --rm -v $PWD:/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
-alias terraform='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/home/wills.linux/.aws --workdir /temp/terraform --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro hashicorp/terraform'
+alias terraform='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/home/$USER.linux/.aws --workdir /temp/terraform --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro hashicorp/terraform'
 alias terraform12='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.12.29'
 alias terraform11='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
 alias cdktf-cli='docker run -it --rm -v $(pwd):/src -w "/src" cdktf-cli:latest sh'
