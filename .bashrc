@@ -51,9 +51,10 @@ export PATH=$PATH:/Users/willsoula/bin
 # zsh-syntax-highlighting only expands $PWD and ${PWD} now
 # https://github.com/zsh-users/zsh-syntax-highlighting/issues/771#issuecomment-708568839
 alias terraform-docs-replace='docker run --rm -v $PWD:/docs cytopia/terraform-docs terraform-docs-replace --sort-inputs-by-required --with-aggregate-type-defaults md README.md'
-alias terraform='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/home/$USER.linux/.aws --workdir /temp/terraform --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro hashicorp/terraform'
+alias terraform='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/home/$USER.linux/.aws -v $HOME/.ssh:/home/$USER.linux/.ssh --workdir /temp/terraform --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro hashicorp/terraform'
 alias terraform12='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.12.29'
-alias terraform11='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it hashicorp/terraform:0.11.14'
+alias terraform11='docker run -v $PWD:/temp/terraform -v $HOME/.aws:/root/.aws --workdir /temp/terraform --rm -it -u $(id -u ${USER}):$(id -g ${USER}) -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro hashicorp/terraform:0.11.14'
+alias terraformThreadRepo='docker run -v $PWD:/temp/ -v $HOME/.aws:/root/.aws --workdir /temp/thread --rm -it hashicorp/terraform:0.11.15'
 alias cdktf-cli='docker run -it --rm -v $(pwd):/src -w "/src" cdktf-cli:latest sh'
 alias cat=bat
 # Docker Containers for Desktop
@@ -67,7 +68,8 @@ alias tmpsms="docker run --rm -it -v $HOME:/tmp/tmpsms tmpsms"
 alias segno='docker run --rm -it -v ${PWD}:/tmp segno'
 alias maze='docker run --rm -it -v $PWD:/var/tmp/maze-output maze'
 alias nafas="docker run --rm -it nafas"
-alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $PWD:/aws amazon/aws-cli'
+alias aws='docker run --rm -v ~/.aws:/root/.aws -v $PWD:/aws amazon/aws-cli'
+alias aws-session-manager='docker run --rm -it -v ~/.aws:/root/.aws -v $PWD:/aws aws-session-manager'
 alias http="docker run -it --rm http"
 alias rare='docker run -it --rm -v $PWD:/tmp/rare rare --notrim'
 alias slo-generator="docker run -it --rm -v $(pwd):/app/ -e STACKDRIVER_HOST_PROJECT_ID=1 -e DATADOG_API_KEY=1 -e DATADOG_APP_KEY=1 -e DYNATRACE_API_URL=1 \
@@ -94,3 +96,16 @@ alias jq='docker run -i stedolan/jq'
 alias gitversion='docker run --rm -t -v $(pwd):/repo gittools/gitversion /repo'
 alias ov='docker run --rm -it -v $(PWD):/tmp ov'
 alias diagram='docker run --rm -it -v $(PWD):/tmp --name dac dac'
+alias stree='docker run -it --rm -v ~/.aws:/root/.aws stree'
+alias mysql='docker run -it --rm mysql mysql'
+# have xargs use aliases instead of binary - https://unix.stackexchange.com/questions/141367/have-xargs-use-alias-instead-of-binary
+# alias xargs='xargs '
+# Work aliases
+. $HOME/.work_aliases
+# Node alias to work with N
+export N_PREFIX=~/.n
+export PATH=$N_PREFIX/bin:$PATH
+alias scout='docker run --rm -it -v $(PWD):/tmp -v ~/.aws:/root/.aws --name scout scout'
+alias jira='docker run -it --rm --entrypoint /bin/jira -e JIRA_API_TOKEN=$(cat ~/.jira) -v /Users/wills/.config/.jira:/root/.config/.jira ghcr.io/ankitpokhrel/jira-cli:latest'
+#alias jira='docker run -it --rm -e JIRA_API_TOKEN=$(cat ~/.jira) -v /Users/wills/.config/.jira:/root/.config/.jira ghcr.io/ankitpokhrel/jira-cli:latest'
+. ~/.aws_accounts
